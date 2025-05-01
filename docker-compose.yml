@@ -1,0 +1,47 @@
+services:
+  nginx:
+    image: nginx:1.25-alpine
+    ports:
+      - 8080:80
+    volumes:
+      - ./server/:/var/www
+      - ./server/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - api
+    networks:
+      - gcondo-slim-network
+
+  api:
+    build:
+      context: ./server
+    working_dir: /var/www
+    volumes:
+      - ./server/:/var/www
+      - composer-cache:/root/.composer/cache
+    networks:
+      - gcondo-slim-network
+    depends_on:
+      - database
+    env_file:
+      - .env.dev
+
+  database:
+    image: mysql:8.0
+    volumes:
+      - database-data:/var/lib/mysql
+    networks:
+      - gcondo-slim-network
+    ports:
+      - 3306:3306
+    env_file:
+      - .env.dev
+
+networks:
+  gcondo-slim-network:
+    driver: bridge
+
+volumes:
+  database-data:
+    driver: local
+  composer-cache:
+    driver: local
