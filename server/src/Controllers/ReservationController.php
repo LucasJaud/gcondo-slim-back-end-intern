@@ -4,32 +4,42 @@ namespace App\Controllers;
 
 use App\Http\HttpStatus;
 use App\Http\Response\ResponseBuilder;
-use App\Services\VenueService;
+use App\Services\ReservationService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class VenueController{
 
-    public function __construct(private VenueService $service) {}
+class ReservationController{
+
+    public function __construct(private ReservationService $service){}
 
     public function list(Request $request, Response $response): Response
     {
         $params = $request->getQueryParams();
 
-        $venues = isset($params['condominium_id'])
-            ? $this->service->listByCondominium($params['condominium_id'])
+        $reservations = isset($params['venue_id'])
+            ? $this->service->listByVenue($params['venue_id'])
             : $this->service->list();
 
-        $data = ['venues' => $venues];
+        $data = ['reservations' => $reservations];
 
         $response = ResponseBuilder::respondWithData($response, data: $data);
 
         return $response;
     }
 
+    public function listByCondominium(Request $request, Response $response, array $args): Response
+    {
+        $condominiumId = (int)$args['id'];
+
+        $data = ['reservations' => $this->service->listByCondominium($condominiumId)];
+
+        return ResponseBuilder::respondWithData($response, data: $data);
+    }
+
     public function find(Request $request, Response $response, array $args): Response
     {
-        $data = ['venue' => $this->service->find($args['id'])];
+        $data = ['reservation' => $this->service->find($args['id'])];
 
         $response = ResponseBuilder::respondWithData($response, data: $data);
 
@@ -40,7 +50,7 @@ class VenueController{
     {
         $body = $request->getParsedBody();
 
-        $data = ['venue' => $this->service->create($body)];
+        $data = ['reservation' => $this->service->create($body)];
 
         $response = ResponseBuilder::respondWithData($response, HttpStatus::Created, $data);
 
@@ -51,7 +61,7 @@ class VenueController{
     {
         $body = $request->getParsedBody();
 
-        $data = ['venue' => $this->service->update($args['id'], $body)];
+        $data = ['reservation' => $this->service->update($args['id'], $body)];
 
         $response = ResponseBuilder::respondWithData($response, data: $data);
 
@@ -69,3 +79,4 @@ class VenueController{
         return $response;
     }
 }
+

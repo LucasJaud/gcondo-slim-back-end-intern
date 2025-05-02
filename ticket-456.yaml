@@ -1,0 +1,564 @@
+type: collection.insomnia.rest/5.0
+name: Gcondo
+meta:
+  id: wrk_2d1aa0a9c9374859b8e593d43f84ab19
+  created: 1746137785177
+  modified: 1746168031082
+collection:
+  - name: Condominiums
+    meta:
+      id: fld_5bfcb66004f7423c8b5090adbd8d1002
+      created: 1730000000000
+      modified: 1730000000000
+      sortKey: -1745498334975
+    children:
+      - url: "{{ _.BaseUrl }}/condominiums"
+        name: Create condominium
+        meta:
+          id: req_2389f0d86f4b4e5682a864ff7b0e7717
+          created: 1730000000000
+          modified: 1746146178377
+          isPrivate: false
+          sortKey: -1745498334980
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Residencial Porto Seguro",
+            	"zip_code": "12345678",
+            	"url": "https://www.portoseguro.br"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BaseUrl }}/condominiums"
+        name: List condominiums
+        meta:
+          id: req_363857fc716f4965872cc83b1fc943dd
+          created: 1730000000000
+          modified: 1746138078530
+          isPrivate: false
+          sortKey: -1745498334975
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BaseUrl }}/condominiums/1"
+        name: Update condominium
+        meta:
+          id: req_3b399d73a87044a79c0efe6921a99725
+          created: 1730000000000
+          modified: 1746167470095
+          isPrivate: false
+          sortKey: -1745498334981
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Residencial Porto Seguro - Atualizado",
+            	"zip_code": "12345678",
+            	"url": "https://www.portoseguro.com.br"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BaseUrl }}/condominiums/1"
+        name: Delete condominium
+        meta:
+          id: req_51b082eb52f542eb8904727b53355a75
+          created: 1730000000000
+          modified: 1746167465676
+          isPrivate: false
+          sortKey: -1745498334982
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BaseUrl }}/condominiums/1"
+        name: Get condominium
+        meta:
+          id: req_6f48bd234a7b44c09015152b6b040e0b
+          created: 1730000000000
+          modified: 1746138069051
+          isPrivate: false
+          sortKey: -1745498334979
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Units
+    meta:
+      id: fld_a9b94e6d6a8447e69ae2413fec9a4eae
+      created: 1730000000000
+      modified: 1730000000000
+      sortKey: -1745498334983
+    children:
+      - url: "{{ _.BaseUrl }}/units"
+        name: List units
+        meta:
+          id: req_9373daac4635492db9824bfba71d249c
+          created: 1730000000000
+          modified: 1746166099307
+          isPrivate: false
+          sortKey: -1745498334983
+        method: GET
+        parameters:
+          - id: pair_6067de45527c4cb2a1ded5f8b2257f87
+            name: condominium_id
+            value: "1"
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BaseUrl }}/units"
+        name: Create unit
+        meta:
+          id: req_afcaec206608412090d263c33a54707e
+          created: 1730000000000
+          modified: 1746167451113
+          isPrivate: false
+          sortKey: -1745498334985
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"condominium_id": 1,
+            	"name": "101",
+            	"square_meters": 80.5,
+            	"bedroom_count": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BaseUrl }}/units/1"
+        name: Update unit
+        meta:
+          id: req_b5cfc83899b44ee2990b26f07bfe6d03
+          created: 1730000000000
+          modified: 1746167445500
+          isPrivate: false
+          sortKey: -1745498334986
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"condominium_id": 1,
+            	"name": "101",
+            	"square_meters": 85.5,
+            	"bedroom_count": 4
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BaseUrl }}/units/1"
+        name: Delete unit
+        meta:
+          id: req_c06957474e434c4b8f5cf94c9d6b597d
+          created: 1730000000000
+          modified: 1746167440244
+          isPrivate: false
+          sortKey: -1745498334988
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BaseUrl }}/units/1"
+        name: Get unit
+        meta:
+          id: req_c1658c3d0d874982aa0cfe52a273794e
+          created: 1730000000000
+          modified: 1746167456760
+          isPrivate: false
+          sortKey: -1745498334984
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Venues
+    meta:
+      id: fld_3c697d0cc86b4592a5e2735249e345b0
+      created: 1746152068356
+      modified: 1746152068356
+      sortKey: -1746152068356
+    children:
+      - url: "{{BaseUrl}}/venues"
+        name: List venues
+        meta:
+          id: req_bc570bd0172b4c45bf67778b6ac1eb5c
+          created: 1746152099262
+          modified: 1746161715989
+          isPrivate: false
+          sortKey: -1746152099262
+        method: GET
+        parameters:
+          - id: pair_90d1ea67cba5446b952d55c13d64faa4
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{BaseUrl}}/venues/1"
+        name: Get venue
+        meta:
+          id: req_a68b3b42aad74e6391f3e9f2649370de
+          created: 1746152852878
+          modified: 1746152962653
+          isPrivate: false
+          sortKey: -1746152852878
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{BaseUrl}}/venues"
+        name: Create venue
+        meta:
+          id: req_e77d2decddc84bd68f75d0a541b2330c
+          created: 1746152969525
+          modified: 1746153835312
+          isPrivate: false
+          sortKey: -1746152969525
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"condominium_id": 22,
+            	"name":"Salão de festas 1",
+            	"square_meters": 90.5,
+            	"maximum_occupancy": 20
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{BaseUrl}}/venues/1"
+        name: Update venue
+        meta:
+          id: req_2e8139e963dc463bbb814521452d8839
+          created: 1746153636310
+          modified: 1746153742368
+          isPrivate: false
+          sortKey: -1746153636310
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"condominium_id": 22,
+            	"name":"Salão de festas 1",
+            	"square_meters": 90.5,
+            	"maximum_occupancy": 20
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{BaseUrl}}/venues/2"
+        name: Delete venue
+        meta:
+          id: req_56f1315be4134f2b844e90d928be5dbf
+          created: 1746153913004
+          modified: 1746153949435
+          isPrivate: false
+          sortKey: -1746153913004
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Reservations
+    meta:
+      id: fld_b72d9da5cc0a46dfb1d2e8cb34a098cb
+      created: 1746161678662
+      modified: 1746161745662
+      sortKey: -1746161678662
+    children:
+      - url: "{{BaseUrl}}/reservations"
+        name: List reservations
+        meta:
+          id: req_3f723d370e8f4f3087046ff8e0caa191
+          created: 1746161682911
+          modified: 1746166129073
+          isPrivate: false
+          sortKey: -1746161682911
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{BaseUrl}}/reservations/condominium/22"
+        name: List reservations by condominium
+        meta:
+          id: req_2cdcfc9565ae499ab2a31faa9186a48d
+          created: 1746161746642
+          modified: 1746165916559
+          isPrivate: false
+          sortKey: -1746161746642
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{BaseUrl}}/reservations"
+        name: Create reservation
+        meta:
+          id: req_985f14e241b94e44bbe57610b6a4c835
+          created: 1746161800122
+          modified: 1746163550421
+          isPrivate: false
+          sortKey: -1746161800122
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name":"Churasco de Fernando",
+            	"guest_count": 15,
+            	"date": "2025-05-10T14:00:00",
+            	"venue_id": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{BaseUrl}}/reservations/1"
+        name: Update reservation
+        meta:
+          id: req_18570f970e874956b66a980137745b87
+          created: 1746163228695
+          modified: 1746164746535
+          isPrivate: false
+          sortKey: -1746163228695
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name":"Churasco de Fernando",
+            	"guest_count": 18,
+            	"date": "2025-05-02T02:34:39",
+            	"venue_id": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{BaseUrl}}/reservations/1"
+        name: Get reservation
+        meta:
+          id: req_c709fecebdd846938372893918a6978d
+          created: 1746163306671
+          modified: 1746165918803
+          isPrivate: false
+          sortKey: -1746161714776.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{BaseUrl}}/reservations/1"
+        name: Delete reservation
+        meta:
+          id: req_a292c075fe094a2593cbc28f1b460eb8
+          created: 1746163598627
+          modified: 1746163661273
+          isPrivate: false
+          sortKey: -1746163598627
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - url: "{{ _.BaseUrl }}"
+    name: Index
+    meta:
+      id: req_98e927f3db7048d196af1982615c245b
+      created: 1730000000000
+      modified: 1746152750524
+      isPrivate: false
+      description: API para gerenciamento de condomínios e unidades
+      sortKey: -1745498334974
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_eafd77ab36860d3c137d954c018e9a3112c08243
+    created: 1746137785179
+    modified: 1746137785179
+environments:
+  name: Base Environment
+  meta:
+    id: env_eafd77ab36860d3c137d954c018e9a3112c08243
+    created: 1746137785178
+    modified: 1746137785178
+    isPrivate: false
+  subEnvironments:
+    - name: Gcondo
+      meta:
+        id: env_9ce895c1392843dc9d5bef843053ff67
+        created: 1746137890809
+        modified: 1746138041498
+        isPrivate: true
+        sortKey: 1746137890809
+      data:
+        BaseUrl: http://localhost:8080

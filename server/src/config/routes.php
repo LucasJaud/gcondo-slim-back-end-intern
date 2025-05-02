@@ -8,6 +8,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
 use App\Controllers\VenueController;
+use App\Controllers\ReservationController;
 
 return function (App $app) {
     $app->get('/', function (Request $request, Response $response) {
@@ -40,5 +41,14 @@ return function (App $app) {
         $group->post('', [VenueController::class, 'create']);
         $group->put('/{id}', [VenueController::class, 'update']);
         $group->delete('/{id}', [VenueController::class, 'delete']);
+    });
+
+    $app->group('/reservations', function (RouteCollectorProxy $group){
+        $group->get('', [ReservationController::class, 'list']);
+        $group->get('/{id}', [ReservationController::class, 'find']);
+        $group->get('/condominium/{id}', [ReservationController::class, 'listByCondominium']);
+        $group->post('', [ReservationController::class, 'create']);
+        $group->put('/{id}', [ReservationController::class, 'update']);
+        $group->delete('/{id}', [ReservationController::class, 'delete']);
     });
 };
