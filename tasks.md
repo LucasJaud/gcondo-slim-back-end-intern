@@ -39,7 +39,7 @@ Ao tentar cadastrar um condomínio com uma `url` já existente, o sistema retorn
   
 - Criei uma resposta personalizada e amigável para o caso de tentativa de cadastro com URL já existente.
 
-- Garantindo que informações sensíveis do banco de dados não sejam expostas ao usuário final.
+- Foi Garantido que informações sensíveis do banco de dados não sejam expostas ao usuário final.
 
 <!-- Tarefa 3 -->
 ## Tarefa 3 - Criar funcionalidade de Reservas

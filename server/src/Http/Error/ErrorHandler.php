@@ -90,10 +90,8 @@ class ErrorHandler extends SlimErrorHandler
         {
             $errorMessage = $exception->getMessage();
             if (strpos($errorMessage, 'SQLSTATE[23000]') !== false && strpos($errorMessage, '1062 Duplicate entry') !== false){
-                // Importante: Definir o status como Conflict (409)
-                $status = HttpStatus::Conflict;
                 
-                // Importante: Definir o tipo de erro
+                $status = HttpStatus::Conflict;
                 $error->setType('DUPLICATE_ENTRY');
                 
                 preg_match("/for key '(.*?)'/", $errorMessage, $matches);

@@ -32,7 +32,7 @@ class CondominiumService
         $condominium = Condominium::create([
             'name' => $data['name'],
             'zip_code' => $data['zip_code'],
-            'url' => $data['url']
+            'url' => $data['url'] ?? null
         ]);
 
         return $condominium;
