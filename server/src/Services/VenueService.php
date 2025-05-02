@@ -49,7 +49,7 @@ class VenueService
             'condominium_id' => $data['condominium_id'],
             'name' => $data['name'],
             'square_meters' => $data['square_meters'] ?? null,
-            'condominium_id' => $data['condominium_id'] ?? null
+            'maximum_occupancy' => $data['maximum_occupancy'] ?? null
         ]);
 
         return $venue;
@@ -65,7 +65,7 @@ class VenueService
             'condominium_id' => $data['condominium_id'],
             'name' => $data['name'],
             'square_meters' => $data['square_meters'] ?? null,
-            'condominium_id' => $data['condominium_id'] ?? null
+            'maximum_occupancy' => $data['maximum_occupancy'] ?? null
         ]);
 
         $venue->save();

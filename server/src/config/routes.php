@@ -7,6 +7,7 @@ use Slim\Routing\RouteCollectorProxy;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
+use App\Controllers\VenueController;
 
 return function (App $app) {
     $app->get('/', function (Request $request, Response $response) {
@@ -31,5 +32,13 @@ return function (App $app) {
         $group->post('', [UnitController::class, 'create']);
         $group->put('/{id}', [UnitController::class, 'update']);
         $group->delete('/{id}', [UnitController::class, 'delete']);
+    });
+
+    $app->group('/venues',function (RouteCollectorProxy $group){
+        $group->get('', [VenueController::class, 'list']);
+        $group->get('/{id}', [VenueController::class, 'find']);
+        $group->post('', [VenueController::class, 'create']);
+        $group->put('/{id}', [VenueController::class, 'update']);
+        $group->delete('/{id}', [VenueController::class, 'delete']);
     });
 };
