@@ -10,7 +10,7 @@ class Condominium extends AbstractMigration
         $table = $this->table('condominiums')
             ->addColumn('name', 'string', ['null' => false])
             ->addColumn('zip_code', 'string', ['limit' => 8, 'null' => false])
-            ->addColumn('url', 'string', ['null' => false])
+            ->addColumn('url', 'string', ['null' => true])
             ->addIndex('url', ['unique' => true]);
 
         PhinxHelper::setDatetimeColumns($table);
